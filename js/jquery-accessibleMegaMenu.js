@@ -49,10 +49,10 @@ limitations under the License.
     var pluginName = "accessibleMegaMenu",
         defaults = {
             uuidPrefix: "accessible-megamenu", // unique ID's are required to indicate aria-owns, aria-controls and aria-labelledby
-            menuClass: "accessible-megamenu", // default css class used to define the megamenu styling
-            topNavItemClass: "accessible-megamenu-top-nav-item", // default css class for a top-level navigation item in the megamenu
-            panelClass: "accessible-megamenu-panel", // default css class for a megamenu panel
-            panelGroupClass: "accessible-megamenu-panel-group", // default css class for a group of items within a megamenu panel
+            menuClass: "nav-menu", // default css class used to define the megamenu styling
+            topNavItemClass: "nav-item", // default css class for a top-level navigation item in the megamenu
+            panelClass: "sub-nav", // default css class for a megamenu panel
+            panelGroupClass: "sub-nav-wrapper", // default css class for a group of items within a megamenu panel
             hoverClass: "hover", // default css class for the hover state
             focusClass: "focus", // default css class for the focus state
             openClass: "open", // default css class for the open state
@@ -728,8 +728,8 @@ limitations under the License.
                     var topnavitemlink, topnavitempanel;
                     topnavitem = $(topnavitem);
                     topnavitem.addClass(settings.topNavItemClass);
-                    topnavitemlink = topnavitem.find(":tabbable:first");
-                    topnavitempanel = topnavitem.children(":not(:tabbable):last");
+                    topnavitemlink = topnavitem.find("a:first");
+                    topnavitempanel = topnavitem.find("div.sub-nav-wrapper");
                     _addUniqueId.call(that, topnavitemlink);
                     if (topnavitempanel.length) {
                         _addUniqueId.call(that, topnavitempanel);
